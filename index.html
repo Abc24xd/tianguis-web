@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Productos del Tianguis - Zitácuaro</title>
+  <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">🛒 Catálogo de Productos del Tianguis</h1>
+      <nav class="nav">
+        <a href="/" class="nav-link active">Catálogo</a>
+        <a href="/admin.html" class="nav-link">Administrador</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h2>Bienvenido a nuestro catálogo</h2>
+      <p>Encuentra productos de calidad en Zitácuaro, Michoacán</p>
+      <div class="hero-info">
+        <div class="info-item">
+          <span class="icon">📍</span>
+          <span>Crecencio Morales, Lázaro Cárdenas Sur 90</span>
+        </div>
+        <div class="info-item">
+          <span class="icon">📱</span>
+          <span>715 131 2918</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Product Section -->
+  <section class="featured-section" id="featured-section" style="display: none;">
+    <div class="container">
+      <div class="featured-card" id="featured-card"></div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products-section">
+    <div class="container">
+      <h2 class="section-title">Nuestros Productos</h2>
+
+      <div class="search-container">
+        <input
+          type="text"
+          id="search-input"
+          class="search-input"
+          placeholder="🔍 Buscar producto..."
+        >
+      </div>
+
+      <div id="loading" class="loading">
+        <div class="spinner"></div>
+        <p>Cargando productos...</p>
+      </div>
+
+      <div id="products-grid" class="products-grid"></div>
+
+      <div id="no-products" class="no-products" style="display: none;">
+        <p>No hay productos disponibles en este momento.</p>
+      </div>
+
+      <div id="no-search-results" class="no-products" style="display: none;">
+        <p>No encontramos productos que coincidan con tu búsqueda.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cart Section -->
+  <div id="cart-sidebar" class="cart-sidebar">
+    <div class="cart-header">
+      <h3>Tu Pedido</h3>
+      <button id="close-cart" class="close-cart">&times;</button>
+    </div>
+    <div id="cart-items" class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cart-total">$0.00</span>
+      </div>
+      <button id="order-pickup" class="btn btn-primary">
+        Recoger en el puesto
+      </button>
+    </div>
+  </div>
+
+  <!-- Location Section -->
+  <section class="location-section">
+    <div class="container">
+      <h2 class="section-title">Encuéntranos</h2>
+      <div class="location-info">
+        <div class="address">
+          <h3>📍 Dirección</h3>
+          <p>Crecencio Morales, Lázaro Cárdenas Sur 90</p>
+          <p>Benito Juárez, 61517</p>
+          <p>Zitácuaro, Michoacán</p>
+
+          <div class="schedule-info">
+            <h4>📅 Días de venta</h4>
+            <p>Domingo y martes</p>
+
+            <h4>⏰ Horario</h4>
+            <p>7:00 AM - 1:00 PM</p>
+          </div>
+
+          <a href="https://www.google.com/maps/search/?api=1&query=Tianguis+Zitacuaro+Crecencio+Morales" target="_blank" class="btn btn-secondary">
+            Ver ubicación en Google Maps
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Catálogo de Productos del Tianguis - Zitácuaro, Michoacán</p>
+      <p>📱 WhatsApp: 715 131 2918</p>
+    </div>
+  </footer>
+
+  <!-- Floating Cart Button -->
+  <button id="cart-button" class="cart-button">
+    🛒 <span id="cart-count" class="cart-count">0</span>
+  </button>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/527151312918" target="_blank" class="whatsapp-button" title="Contactar por WhatsApp">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+      <path d="M16 0C7.163 0 0 7.163 0 16c0 2.825.744 5.488 2.05 7.794L.706 30.706l7.2-1.888C10.162 30.256 12.994 31 16 31c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29c-2.619 0-5.119-.781-7.206-2.119l-.519-.319-5.381 1.412 1.438-5.256-.337-.537A12.925 12.925 0 013 16C3 8.82 8.82 3 16 3s13 5.82 13 13-5.82 13-13 13z" fill="currentColor"/>
+      <path d="M22.994 18.581c-.394-.2-2.331-1.15-2.694-1.281-.362-.131-.625-.2-.888.2-.263.4-1.019 1.281-1.25 1.544-.231.263-.462.294-.856.094-.394-.2-1.663-.613-3.169-1.956-1.175-1.05-1.969-2.35-2.2-2.744-.231-.394-.025-.606.175-.8.181-.181.394-.469.594-.7.2-.231.263-.394.394-.656.131-.263.069-.494-.031-.694-.1-.2-.888-2.137-1.219-2.925-.319-.769-.637-.663-.888-.675-.225-.012-.481-.012-.737-.012s-.675.094-1.031.469c-.356.375-1.35 1.319-1.35 3.219s1.381 3.731 1.575 3.994c.194.263 2.738 4.181 6.631 5.862.925.4 1.65.637 2.212.819.931.294 1.781.25 2.45.15.75-.113 2.331-.95 2.662-1.869.331-.919.331-1.7.231-1.869-.1-.169-.356-.269-.75-.469z" fill="currentColor"/>
+    </svg>
+  </a>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
